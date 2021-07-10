@@ -8,4 +8,7 @@ Rails.application.routes.draw do
   root "posts#index"
 
   get '/about', to: 'pages#about'
+  patch "posts/:id/hide", to: 'posts#hide', as: :hide
+  patch "posts/:id/unhide", to: 'posts#unhide', as: :unhide
+
 end

@@ -2,5 +2,10 @@
 <div class="post_wrapper">
   <h2 class="title"><%= link_to post.title, post %></h2>
   <p class="date"><%= post.created_at.strftime("%B, %d, %Y") %></p>
+  <% if post.online? %>
+    <%= link_to 'hide', hide_path(id: post.id), method: :patch, remote: true %>
+  <% else %>
+    <%= link_to 'unhide', unhide_path(id: post.id), method: :patch, remote: true %>
+  <% end %>
 </div>
 <% end %>
