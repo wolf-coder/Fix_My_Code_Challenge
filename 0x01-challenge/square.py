@@ -2,7 +2,7 @@
 """
 Deal with square
 """
-class square():
+class Square():
     """
     Describe square
     """
@@ -16,9 +16,9 @@ class square():
 
     def area_of_my_square(self):
         """ Area of the square """
-        return self.width * self.width
+        return self.height * self.width
 
-    def PermiterOfMySquare(self):
+    def Permiter_of_my_square(self):
         return (self.width * 2) + (self.height * 2)
 
     def __str__(self):
