@@ -1,7 +1,11 @@
 #!/usr/bin/python3
-
+"""
+Deal with square
+"""
 class square():
-    
+    """
+    Describe square
+    """
     width = 0
     height = 0
 
