@@ -3,6 +3,7 @@ class PostsController < ApplicationController
   
   def index
     @posts = Post.all.order('created_at DESC')
+    byebug
   end
 
   def new
@@ -30,11 +31,23 @@ class PostsController < ApplicationController
   def update
     @post = Post.find(params[:id])
 
-    if @post.update(params[:post].permit(:title, :body))
+    if @post.update(params[:post].permit(:title, :body, :online))
       redirect_to @post
     else
       render 'edit'
     end
+  end
+
+  def hide
+    @post = Post.find(params[:id])
+    @post.update(online: false)
+    redirect_to posts_path
+  end
+
+  def unhide
+    @post = Post.find(params[:id])
+    @post.update(online: true)
+    redirect_to posts_path
   end
 
   def destroy
@@ -46,6 +59,6 @@ class PostsController < ApplicationController
 
   private
     def post_params
-      params.require(:post).permit(:title, :body)
+      params.require(:post).permit(:title, :body, :online)
     end
 end
