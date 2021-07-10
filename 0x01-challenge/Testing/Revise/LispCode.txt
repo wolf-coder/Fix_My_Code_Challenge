@@ -1,0 +1,1 @@
+(insert-image (create-image "KK"))
